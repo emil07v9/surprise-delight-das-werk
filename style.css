@@ -244,12 +244,10 @@ body {
 @keyframes zoom_forsvind_kf {
     0% {
         transform: scale(100%);
-        opacity: 100%;
     }
 
     100% {
         transform: scale(0);
-        opacity: 0;
     }
 }
 
