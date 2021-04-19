@@ -195,43 +195,48 @@ body {
 }
 
 /*Animationer*/
-.animation_elements {
-    animation-name: elements_kf;
+.hop_op_ned {
+    animation-name: hop_op_ned_kf;
     animation-duration: 3s;
     animation-iteration-count: 1;
     animation-fill-mode: both;
 }
 
-@keyframes elements_kf {
-    from {
+@keyframes hop_op_ned_kf {
+    0 {
         transform: translateY(9vw);
     }
 
-    to {
+    100% {
         transform: translateY(-1vw);
+    }
+
+    0 {
+        transform: translateY(9vw);
     }
 }
 
-.animation_heks {
-    animation-name: heks_kf;
+.roter_forsvind {
+    animation-name: roter_forsvind_kf;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: both;
 }
 
-@keyframes heks_kf {
-    from {
+@keyframes roter_forsvind_kf {
+    0% {
         transform: rotate(0deg) scale(100%);
         opacity: 100%;
     }
 
-    to {
+    100% {
         transform: rotate(360deg) scale(0);
         opacity: 0;
     }
 }
 
+/*
 .animation_knivmand {
     animation-name: knivmand_kf;
     animation-duration: 1s;
@@ -271,6 +276,7 @@ body {
         opacity: 0;
     }
 }
+*/
 
 .animation_zombie1 {
     animation-name: zombie1_kf;
