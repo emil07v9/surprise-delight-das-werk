@@ -4,20 +4,18 @@ function sidenVises() {
     console.log("siden vises");
     document.querySelector("#heks_container").classList.add("hop");
     document.querySelector("#zombie_container1").classList.add("hop");
-    document.querySelector("#heks_container").addEventListener("click", klikHeksHandler);
-    document.querySelector("#zombie_container1").addEventListener("click", klikZombie1Handler);
+    document.querySelector("#heks_container").addEventListener("mousedown", clickHeksHandler);
+    document.querySelector("#zombie_container1").addEventListener("mousedown", clickZombie1Handler);
 }
 
-function klikHeksHandler() {
-    console.log("klikHeksHandler");
+function clickHeksHandler() {
+    console.log("clickHeksHandler");
     document.querySelector("#heks_container").classList.add("pause");
-    document.querySelector("#heks_sprite").classList.add("roter");
-    document.querySelector("#heks_sprite").classList.add("forsvind");
+    document.querySelector("#heks_sprite").classList.add("roter_forsvind");
 }
 
-function klikZombie1Handler() {
-    console.log("klikZombie1Handler");
+function clickZombie1Handler() {
+    console.log("clickZombie1Handler");
     document.querySelector("#zombie_container1").classList.add("pause");
-    document.querySelector("#zombie_sprite1").classList.add("zoom_ud");
-    document.querySelector("#zombie_sprite1").classList.add("forsvind");
+    document.querySelector("#zombie_sprite1").classList.add("zoom_forsvind");
 }
