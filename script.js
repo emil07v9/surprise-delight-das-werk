@@ -3,8 +3,9 @@ window.addEventListener("load", sidenVises);
 function sidenVises() {
     console.log("siden vises");
     document.querySelector("#heks_container").classList.add("hop");
+    document.querySelector("#zombie_container1").classList.add("hop");
     document.querySelector("#heks_container").addEventListener("click", klikHeksHandler);
-    document.querySelector("#zombie_container").addEventListener("click", klikZombieHandler);
+    document.querySelector("#zombie_container1").addEventListener("click", klikZombieHandler);
 }
 
 function klikHeksHandler() {
@@ -16,6 +17,7 @@ function klikHeksHandler() {
 
 function klikZombieHandler() {
     console.log("klikZombieHandler");
+    document.querySelector("#zombie_container1").classList.add("pause");
     document.querySelector("#zombie_sprite1").classList.add("zoom_ud");
     document.querySelector("#zombie_sprite1").classList.add("forsvind");
 }
