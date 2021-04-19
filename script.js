@@ -4,8 +4,8 @@ function sidenVises() {
     console.log("siden vises");
     document.querySelector("#heks_container").classList.add("hop");
     document.querySelector("#zombie_container1").classList.add("hop");
-    document.querySelector("#heks_container").addEventListener("mousedown", clickHeksHandler);
-    document.querySelector("#zombie_container1").addEventListener("mousedown", clickZombie1Handler);
+    document.querySelector("#heks_container").addEventListener("click", clickHeksHandler);
+    document.querySelector("#zombie_container1").addEventListener("click", clickZombie1Handler);
 }
 
 function clickHeksHandler() {
