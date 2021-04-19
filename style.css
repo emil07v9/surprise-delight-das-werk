@@ -195,23 +195,24 @@ body {
 }
 
 /*Animationer*/
-.hop_op_ned {
-    animation-name: hop_op_ned_kf;
+.hop {
+    animation-name: hop_kf;
     animation-duration: 3s;
     animation-iteration-count: 1;
     animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.55, .06, .68, .19);
 }
 
-@keyframes hop_op_ned_kf {
+@keyframes hop_kf {
     0 {
         transform: translateY(0vw);
     }
 
-    100% {
+    50% {
         transform: translateY(-2vw);
     }
 
-    0 {
+    100% {
         transform: translateY(0vw);
     }
 }
