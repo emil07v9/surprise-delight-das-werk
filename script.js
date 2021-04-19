@@ -10,12 +10,14 @@ function sidenVises() {
 
 function clickHeksHandler() {
     console.log("clickHeksHandler");
+    document.querySelector("#heks_container").removeEventListener("mousedown", clickHeksHandler);
     document.querySelector("#heks_container").classList.add("pause");
     document.querySelector("#heks_sprite").classList.add("roter_forsvind");
 }
 
 function clickZombie1Handler() {
     console.log("clickZombie1Handler");
+    document.querySelector("#zombie_container1").removeEventListener("mousedown", clickZombie1Handler);
     document.querySelector("#zombie_container1").classList.add("pause");
     document.querySelector("#zombie_sprite1").classList.add("zoom_forsvind");
 }
