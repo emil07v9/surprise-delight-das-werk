@@ -270,48 +270,6 @@ body {
     }
 }
 
-/*
-.animation_knivmand {
-    animation-name: knivmand_kf;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-}
-
-@keyframes knivmand_kf {
-    from {
-        transform: rotate(0deg) scale(100%);
-        opacity: 100%;
-    }
-
-    to {
-        transform: rotate(360deg) scale(0);
-        opacity: 0;
-    }
-}
-
-.animation_spoegelse {
-    animation-name: spoegelse_kf;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-}
-
-@keyframes spoegelse_kf {
-    from {
-        transform: rotate(0deg) scale(100%);
-        opacity: 100%;
-    }
-
-    to {
-        transform: rotate(360deg) scale(0);
-        opacity: 0;
-    }
-}
-*/
-
 .animation_zombie1 {
     animation-name: zombie1_kf;
     animation-duration: 1s;
