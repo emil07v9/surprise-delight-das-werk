@@ -1,0 +1,313 @@
+body {
+    margin: 0;
+}
+
+#screen {
+    position: relative;
+    width: 100vw;
+    height: 56.25vw;
+}
+
+#game {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#game_background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(baggrund.svg);
+    background-size: cover;
+}
+
+#game_elements {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#heks_container {
+    position: absolute;
+    top: 12vw;
+    left: 36vw;
+}
+
+#heks_sprite {
+    width: 8vw;
+    height: 13vw;
+    background-image: url(heks.svg);
+    background-size: cover;
+}
+
+#knivmand_container {
+    position: absolute;
+    top: 22vw;
+    left: 61vw;
+}
+
+#knivmand_sprite {
+    width: 12vw;
+    height: 13vw;
+    background-image: url(knivmand.svg);
+    background-size: cover;
+}
+
+#spoegelse_container {
+    position: absolute;
+    top: 22vw;
+    left: 45.3vw;
+}
+
+#spoegelse_sprite {
+    width: 10vw;
+    height: 15vw;
+    background-image: url(spoegelse.svg);
+    background-size: cover;
+}
+
+#zombie_container1 {
+    position: absolute;
+    top: 33vw;
+    left: 22vw;
+}
+
+#zombie_sprite1 {
+    width: 12vw;
+    height: 16vw;
+    background-image: url(zombie_1.svg);
+    background-size: cover;
+}
+
+#zombie_container2 {
+    position: absolute;
+    top: 15vw;
+    left: 73vw;
+}
+
+#zombie_sprite2 {
+    width: 7vw;
+    height: 10vw;
+    background-image: url(zombie_2.svg);
+    background-size: cover;
+}
+
+#game_middleground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(mellemgrund.svg);
+    background-size: cover;
+}
+
+#game_foreground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(forgrund.svg);
+    background-size: cover;
+}
+
+#game_ui {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#score_board_container {
+    position: absolute;
+    top: 2.6vw;
+    left: 85vw;
+}
+
+#score_board_sprite {
+    width: 8vw;
+    height: 2vw;
+    background-image: url(point.svg);
+    background-size: cover;
+}
+
+#energy_board_container {
+    position: absolute;
+    top: 2.6vw;
+    left: 7vw;
+}
+
+#energy_board_sprite {
+    width: 8vw;
+    height: 3vw;
+    background-image: url(liv.svg);
+    background-size: cover;
+}
+
+#time_board_container {
+    position: absolute;
+    top: 2vw;
+    left: 35vw;
+}
+
+#time_board_sprite {
+    width: 30vw;
+    height: 3vw;
+    background-image: url(tid.svg);
+    background-size: cover;
+}
+
+#start {
+    position: absolute;
+    background-color: ;
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+#game_over {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+#level_complete {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+/*Animationer*/
+.animation_elements {
+    animation-name: elements_kf;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+@keyframes elements_kf {
+    from {
+        transform: translateY(9vw);
+    }
+
+    to {
+        transform: translateY(-1vw);
+    }
+}
+
+.animation_heks {
+    animation-name: heks_kf;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes heks_kf {
+    from {
+        transform: rotate(0deg) scale(100%);
+        opacity: 100%;
+    }
+
+    to {
+        transform: rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+.animation_knivmand {
+    animation-name: knivmand_kf;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes knivmand_kf {
+    from {
+        transform: rotate(0deg) scale(100%);
+        opacity: 100%;
+    }
+
+    to {
+        transform: rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+.animation_spoegelse {
+    animation-name: spoegelse_kf;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes spoegelse_kf {
+    from {
+        transform: rotate(0deg) scale(100%);
+        opacity: 100%;
+    }
+
+    to {
+        transform: rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+.animation_zombie1 {
+    animation-name: zombie1_kf;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes zombie1_kf {
+    from {
+        transform: scale(100%);
+        opacity: 100%;
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.animation_zombie2 {
+    animation-name: zombie2_kf;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes zombie2_kf {
+    from {
+        transform: scale(100%);
+        opacity: 100%;
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
