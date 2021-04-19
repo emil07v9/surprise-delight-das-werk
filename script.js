@@ -2,14 +2,14 @@ window.addEventListener("load", sidenVises);
 
 function sidenVises() {
     console.log("siden vises");
-    //    document.querySelector("#heks_container").classList.add("hop");
+    document.querySelector("#heks_container").classList.add("hop");
     document.querySelector("#heks_container").addEventListener("click", klikHeksHandler);
     document.querySelector("#zombie_container").addEventListener("click", klikZombieHandler);
 }
 
 function klikHeksHandler() {
     console.log("klikHeksHandler");
-    //    document.querySelector("#heks_container").classList.add("pause");
+    document.querySelector("#heks_container").classList.add("pause");
     document.querySelector("#heks_sprite").classList.add("roter");
     document.querySelector("#heks_sprite").classList.add("forsvind");
 }
