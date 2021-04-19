@@ -271,46 +271,6 @@ body {
     }
 }
 
-.animation_zombie1 {
-    animation-name: zombie1_kf;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-}
-
-@keyframes zombie1_kf {
-    from {
-        transform: scale(100%);
-        opacity: 100%;
-    }
-
-    to {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
-
-.animation_zombie2 {
-    animation-name: zombie2_kf;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-}
-
-@keyframes zombie2_kf {
-    from {
-        transform: scale(100%);
-        opacity: 100%;
-    }
-
-    to {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
-
 .pause {
     animation-play-state: paused;
 }
