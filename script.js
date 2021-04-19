@@ -2,7 +2,7 @@ window.addEventListener("load", sidenVises);
 
 function sidenVises() {
     console.log("siden vises");
-    document.querySelector("#heks_container").classList.add("hop_op_ned");
+    document.querySelector("#heks_container").classList.add("hop");
     document.querySelector("#heks_container").addEventListener("mousedown", klikHeksHandler);
 }
 
