@@ -209,8 +209,20 @@ body {
         transform: translateY(0vw);
     }
 
-    50% {
+    20% {
         transform: translateY(-10vw);
+    }
+
+    35% {
+        transform: translateY(-10vw) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10vw) scale(1);
+    }
+
+    75% {
+        transform: translateY(0vw) scale(0);
     }
 
     100% {
