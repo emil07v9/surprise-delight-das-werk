@@ -36,8 +36,6 @@ body {
 
 #heks_container {
     position: absolute;
-    top: 21vw;
-    left: 36vw;
 }
 
 #heks_sprite {
@@ -75,8 +73,6 @@ body {
 
 #zombie_container1 {
     position: absolute;
-    top: 41vw;
-    left: 21.5vw;
 }
 
 #zombie_sprite1 {
@@ -195,6 +191,26 @@ body {
     display: none;
     top: 0;
     left: 0;
+}
+
+.pos1 {
+    top: 22vw;
+    left: 36vw;
+}
+
+.pos2 {
+    top: 22vw;
+    left: 70.5vw;
+}
+
+.pos3 {
+    top: 41vw;
+    left: 21.5vw;
+}
+
+.pos4 {
+    top: 41vw;
+    left: 55vw;
 }
 
 /*Animationer*/
