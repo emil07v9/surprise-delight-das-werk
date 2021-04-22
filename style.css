@@ -141,15 +141,14 @@ body {
 
 #energy_board_container {
     position: absolute;
+    display: flex;
+    gap: 0.5vw;
     top: 2.6vw;
     left: 7vw;
 }
 
-#energy_board_sprite {
-    width: 8vw;
-    height: 3vw;
-    background-image: url(liv.svg);
-    background-size: cover;
+#energy_board_container img {
+    width: 3vw;
 }
 
 #time_board_container {
