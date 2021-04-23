@@ -20,9 +20,11 @@ function startSpillet() {
     //Udskriv points
     document.querySelector("#score_board").innerHTML = points;
 
+    myRand = Math.floor(Math.random() * 8) + 1;
+    console.log(myRand);
     //Giv container en position og start hop-animation
-    document.querySelector("#heks_container").classList.add("pos1", "hop");
-    document.querySelector("#zombie_container1").classList.add("pos3", "hop");
+    document.querySelector("#heks_container").classList.add("pos" + myRand, "hop");
+    document.querySelector("#zombie_container1").classList.add("pos" + myRand, "hop");
 
     //Lyt efter hop-animationer færdig
     document.querySelector("#heks_container").addEventListener("animationiteration", heksReset);
@@ -66,8 +68,10 @@ function heksReset() {
     //For at kunne genstarte hop animationen, da vi fjener og tilføjer den i samme function
     document.querySelector("#heks_container").offsetHeight;
 
+    myRand = Math.floor(Math.random() * 8) + 1;
+    console.log(myRand);
     //Giv en position til container og start hop-animation
-    document.querySelector("#heks_container").classList.add("pos2", "hop");
+    document.querySelector("#heks_container").classList.add("pos" + myRand, "hop");
 
     //Lyt efter klik på element
     document.querySelector("#heks_container").addEventListener("mousedown", klikHeksHandler);
@@ -106,8 +110,10 @@ function zombie1Reset() {
     //For at kunne genstarte hop animationen, da vi fjener og tilføjer den i samme function
     document.querySelector("#zombie_container1").offsetHeight;
 
+    myRand = Math.floor(Math.random() * 8) + 1;
+    console.log(myRand);
     //Giv en position til container og start hop-animation
-    document.querySelector("#zombie_container1").classList.add("pos4", "hop");
+    document.querySelector("#zombie_container1").classList.add("pos" + myRand, "hop");
 
     //Lyt efter klik på element
     document.querySelector("#zombie_container1").addEventListener("mousedown", klikZombie1Handler);

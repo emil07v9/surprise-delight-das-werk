@@ -47,8 +47,8 @@ body {
 
 #knivmand_container {
     position: absolute;
-    top: 22vw;
-    left: 61vw;
+    top: vw;
+    left: vw;
 }
 
 #knivmand_sprite {
@@ -60,8 +60,8 @@ body {
 
 #spoegelse_container {
     position: absolute;
-    top: 22vw;
-    left: 45.3vw;
+    top: vw;
+    left: vw;
 }
 
 #spoegelse_sprite {
@@ -76,16 +76,16 @@ body {
 }
 
 #zombie_sprite1 {
-    width: 12vw;
-    height: 16vw;
+    width: 8vw;
+    height: 11vw;
     background-image: url(zombie_1.svg);
     background-size: cover;
 }
 
 #zombie_container2 {
     position: absolute;
-    top: 15vw;
-    left: 73vw;
+    top: vw;
+    left: vw;
 }
 
 #zombie_sprite2 {
@@ -191,24 +191,45 @@ body {
     left: 0;
 }
 
+/*Positioner (bagerst til venstre...)*/
 .pos1 {
-    top: 22vw;
-    left: 36vw;
+    top: 24vw;
+    left: 26.5vw;
 }
 
 .pos2 {
-    top: 22vw;
-    left: 70.5vw;
+    top: 24vw;
+    left: 48vw;
 }
 
 .pos3 {
-    top: 41vw;
-    left: 21.5vw;
+    top: 24vw;
+    left: 69vw;
 }
 
 .pos4 {
-    top: 41vw;
-    left: 55vw;
+    top: 32.5vw;
+    left: 37vw;
+}
+
+.pos5 {
+    top: 32.5vw;
+    left: 58vw;
+}
+
+.pos6 {
+    top: 44.5vw;
+    left: 27vw;
+}
+
+.pos7 {
+    top: 44.5vw;
+    left: 48vw;
+}
+
+.pos8 {
+    top: 44.5vw;
+    left: 69vw;
 }
 
 /*Animationer*/
