@@ -26,9 +26,6 @@ function startSpillet() {
     //start en timer-animation
     document.querySelector("#time_board_sprite").classList.add("time");
 
-    //Lytter efter om tiden er gået
-    document.querySelector("#time_sprite").addEventListener("animationend", stopSpillet);
-
     //Giv container en position, start hop-animation og start delay + speed
     document.querySelector("#heks_container").classList.add("pos" + myRand, "hop", "delay1", "speed1");
 
@@ -42,6 +39,9 @@ function startSpillet() {
     //Lyt efter klik på alle elementer
     document.querySelector("#heks_container").addEventListener("mousedown", klikHeksHandler);
     document.querySelector("#zombie_container1").addEventListener("mousedown", klikZombie1Handler);
+
+    //Lytter efter om tiden er gået
+    document.querySelector("#time_sprite").addEventListener("animationend", stopSpillet);
 }
 
 function klikHeksHandler() {

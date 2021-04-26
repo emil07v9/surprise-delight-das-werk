@@ -26,6 +26,7 @@ body {
     background-size: cover;
 }
 
+/*Game elements*/
 #game_elements {
     width: 100%;
     height: 100%;
@@ -39,8 +40,6 @@ body {
 }
 
 #heks_sprite {
-    width: 8vw;
-    height: 13vw;
     background-image: url(heks.svg);
     background-size: cover;
 }
@@ -52,8 +51,6 @@ body {
 }
 
 #knivmand_sprite {
-    width: 12vw;
-    height: 13vw;
     background-image: url(knivmand.svg);
     background-size: cover;
 }
@@ -65,8 +62,6 @@ body {
 }
 
 #spoegelse_sprite {
-    width: 10vw;
-    height: 15vw;
     background-image: url(spoegelse.svg);
     background-size: cover;
 }
@@ -76,8 +71,6 @@ body {
 }
 
 #zombie_sprite1 {
-    width: 8vw;
-    height: 11vw;
     background-image: url(zombie_1.svg);
     background-size: cover;
 }
@@ -89,12 +82,101 @@ body {
 }
 
 #zombie_sprite2 {
-    width: 7vw;
-    height: 10vw;
     background-image: url(zombie_2.svg);
     background-size: cover;
 }
 
+/*Positioner (bagerst til venstre...)*/
+.pos1 {
+    top: 22vw;
+    left: 26.5vw;
+    animation-name: hop_lille_kf;
+}
+
+.pos1 > div {
+    width: 7vw;
+    height: 11vw;
+}
+
+.pos2 {
+    top: 22vw;
+    left: 48vw;
+    animation-name: hop_lille_kf;
+}
+
+.pos2 > div {
+    width: 7vw;
+    height: 11vw;
+}
+
+.pos3 {
+    top: 22vw;
+    left: 69vw;
+    animation-name: hop_lille_kf;
+}
+
+.pos3 > div {
+    width: 7vw;
+    height: 11vw;
+}
+
+.pos4 {
+    top: 30vw;
+    left: 37vw;
+    animation-name: hop_mellem_kf;
+}
+
+.pos4 > div {
+    width: 9vw;
+    height: 14vw;
+}
+
+.pos5 {
+    top: 30vw;
+    left: 58vw;
+    animation-name: hop_mellem_kf;
+}
+
+.pos5 > div {
+    width: 9vw;
+    height: 14vw;
+}
+
+.pos6 {
+    top: 42vw;
+    left: 27vw;
+    animation-name: hop_stor_kf;
+}
+
+.pos6 > div {
+    width: 10vw;
+    height: 16vw;
+}
+
+.pos7 {
+    top: 42vw;
+    left: 48vw;
+    animation-name: hop_stor_kf;
+}
+
+.pos7 > div {
+    width: 10vw;
+    height: 16vw;
+}
+
+.pos8 {
+    top: 42vw;
+    left: 69vw;
+    animation-name: hop_stor_kf;
+}
+
+.pos8 > div {
+    width: 10vw;
+    height: 16vw;
+}
+
+
+/*Game UI*/
 #game_middleground {
     width: 100%;
     height: 100%;
@@ -150,25 +232,25 @@ body {
     width: 3vw;
 }
 
-/* Tid og animation*/
+/* Tid*/
 #time_board_container {
     position: absolute;
     /*
     top: 2vw;
     left: 35vw;
 */
-    top: 20vw;
-    left: 2vw;
-    width: 6vw;
-    height: 30vw;
+    top: 2vw;
+    left: 35vw;
+    width: 30vw;
+    height: 3vw;
     border: 4px solid black;
 }
 
 #time_board_sprite {
-    width: 6vw;
-    height: 30vw;
+    width: 30vw;
+    height: 3vw;
     background-color: lime;
-    transform-origin: center bottom;
+    transform-origin: left center;
 }
 
 .time {
@@ -225,55 +307,13 @@ body {
     left: 0;
 }
 
-/*Positioner (bagerst til venstre...)*/
-.pos1 {
-    top: 24vw;
-    left: 26.5vw;
-}
-
-.pos2 {
-    top: 24vw;
-    left: 48vw;
-}
-
-.pos3 {
-    top: 24vw;
-    left: 69vw;
-}
-
-.pos4 {
-    top: 32.5vw;
-    left: 37vw;
-}
-
-.pos5 {
-    top: 32.5vw;
-    left: 58vw;
-}
-
-.pos6 {
-    top: 44.5vw;
-    left: 27vw;
-}
-
-.pos7 {
-    top: 44.5vw;
-    left: 48vw;
-}
-
-.pos8 {
-    top: 44.5vw;
-    left: 69vw;
-}
-
 /*Animationer*/
 .hop {
-    animation-name: hop_kf;
     animation-duration: 3s;
     animation-iteration-count: infinite;
 }
 
-@keyframes hop_kf {
+@keyframes hop_stor_kf {
     0 {
         transform: translateY(0vw);
     }
@@ -288,6 +328,58 @@ body {
 
     50% {
         transform: translateY(-10vw) scale(1);
+    }
+
+    75% {
+        transform: translateY(0vw) scale(0);
+    }
+
+    100% {
+        transform: translateY(0vw);
+    }
+}
+
+@keyframes hop_mellem_kf {
+    0 {
+        transform: translateY(0vw);
+    }
+
+    20% {
+        transform: translateY(-9vw);
+    }
+
+    35% {
+        transform: translateY(-9vw) scale(1);
+    }
+
+    50% {
+        transform: translateY(-9vw) scale(1);
+    }
+
+    75% {
+        transform: translateY(0vw) scale(0);
+    }
+
+    100% {
+        transform: translateY(0vw);
+    }
+}
+
+@keyframes hop_lille_kf {
+    0 {
+        transform: translateY(0vw);
+    }
+
+    20% {
+        transform: translateY(-8vw);
+    }
+
+    35% {
+        transform: translateY(-8vw) scale(1);
+    }
+
+    50% {
+        transform: translateY(-8vw) scale(1);
     }
 
     75% {
