@@ -26,6 +26,9 @@ function startSpillet() {
     //start en timer-animation
     document.querySelector("#time_board_sprite").classList.add("time");
 
+    document.querySelector("#time_board_container").addEventListener("animationend", stopSpillet);
+
+
     //Giv container en position, start hop-animation og start delay + speed
     document.querySelector("#heks_container").classList.add("pos" + myRand, "hop", "delay1", "speed1");
 
@@ -41,7 +44,7 @@ function startSpillet() {
     document.querySelector("#zombie_container1").addEventListener("mousedown", klikZombie1Handler);
 
     //Lytter efter om tiden er gået
-    document.querySelector("#time_sprite").addEventListener("animationend", stopSpillet);
+    document.querySelector("#time_board_sprite").addEventListener("animationend", stopSpillet);
 }
 
 function klikHeksHandler() {
@@ -62,6 +65,11 @@ function klikHeksHandler() {
 
     //Lyt efter hop-animationer færdig
     document.querySelector("#heks_container").addEventListener("animationend", heksReset);
+
+    if (liv <= 0) {
+        console.log("liv <= 0")
+        stopSpillet();
+    }
 }
 
 function heksReset() {
@@ -79,6 +87,7 @@ function heksReset() {
 
     myRand = Math.floor(Math.random() * 8) + 1;
     console.log(myRand);
+
     //Giv en position til container og start hop-animation
     document.querySelector("#heks_container").classList.add("pos" + myRand, "hop");
 
@@ -110,6 +119,14 @@ function klikZombie1Handler() {
 
     //Lyt efter hop-animation færdig
     document.querySelector("#zombie_sprite1").addEventListener("animationend", zombie1Reset);
+
+    if (points >= 20) {
+        console.log("points >= 20");
+    } else if (points >= 20) {
+        console.log("points >= 20");
+    } else {
+        console.log("else");
+    }
 }
 
 function zombie1Reset() {
@@ -140,5 +157,34 @@ function zombie1Reset() {
 }
 
 function stopSpillet() {
-    console.log("tiden er gået, du har fået" + point + "point!");
+    console.log("stopSpillet");
+    //fjern alt på alle container og sprite
+    document.querySelector("#zombie_container1").classList = "";
+    document.querySelector("#zombie_sprite1").classList = "";
+    document.querySelector("#heks_container").classList = "";
+    document.querySelector("#heks_sprite").classList = "";
+    document.querySelector("#time_board_container").removeEventListener("animationend", stopSpillet);
+    document.querySelector("#heks_container").removeEventListener("animationiteration", heksReset);
+    document.querySelector("#heks_container").removeEventListener("animationend", heksReset);
+    document.querySelector("#heks_container").removeEventListener("mousedown", klikHeksHandler);
+    document.querySelector("#zombie_container1").removeEventListener("animationiteration", zombie1Reset);
+    document.querySelector("#zombie_container1").removeEventListener("mousedown", klikZombie1Handler);
+    document.querySelector("#zombie_sprite1").removeEventListener("animationend", zombie1Reset);
+
+    if (liv <= 0) {
+        gameover();
+    } else if (points >= 20) {
+        levelComplete();
+    } else {
+        gameover();
+    }
+
+}
+
+function gameover() {
+    console.log("gameover");
+}
+
+function levelComplete() {
+    console.log("levelComplete");
 }
