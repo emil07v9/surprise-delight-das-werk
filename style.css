@@ -255,7 +255,7 @@ body {
 
 .time {
     animation-name: time_kf;
-    animation-duration: 10s;
+    animation-duration: 20s;
     animation-timing-function: linear;
     animation-fill-mode: both;
 }
@@ -390,6 +390,12 @@ body {
         transform: translateY(0vw);
     }
 }
+
+/*
+.gray {
+    filter: grayscale(80%);
+}
+*/
 
 .roter_forsvind {
     animation-name: roter_forsvind_kf;
