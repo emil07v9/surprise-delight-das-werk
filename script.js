@@ -22,9 +22,18 @@ function startSpillet() {
 
     myRand = Math.floor(Math.random() * 8) + 1;
     console.log(myRand);
-    //Giv container en position og start hop-animation
-    document.querySelector("#heks_container").classList.add("pos" + myRand, "hop");
-    document.querySelector("#zombie_container1").classList.add("pos" + myRand, "hop");
+
+    //start en timer-animation
+    document.querySelector("#time_board_sprite").classList.add("time");
+
+    //Lytter efter om tiden er gået
+    document.querySelector("#time_sprite").addEventListener("animationend", stopSpillet);
+
+    //Giv container en position, start hop-animation og start delay + speed
+    document.querySelector("#heks_container").classList.add("pos" + myRand, "hop", "delay1", "speed1");
+
+
+    document.querySelector("#zombie_container1").classList.add("pos" + myRand, "hop", "delay2", "speed2");
 
     //Lyt efter hop-animationer færdig
     document.querySelector("#heks_container").addEventListener("animationiteration", heksReset);
@@ -73,6 +82,12 @@ function heksReset() {
     //Giv en position til container og start hop-animation
     document.querySelector("#heks_container").classList.add("pos" + myRand, "hop");
 
+    myRand = Math.floor(Math.random() * 3) + 1;
+    console.log(myRand);
+
+    //Start random speed
+    document.querySelector("#heks_container").classList.add("speed" + myRand);
+
     //Lyt efter klik på element
     document.querySelector("#heks_container").addEventListener("mousedown", klikHeksHandler);
 }
@@ -115,6 +130,15 @@ function zombie1Reset() {
     //Giv en position til container og start hop-animation
     document.querySelector("#zombie_container1").classList.add("pos" + myRand, "hop");
 
+    myRand = Math.floor(Math.random() * 3) + 1;
+    console.log(myRand);
+    //Start random speed
+    document.querySelector("#zombie_container1").classList.add("speed" + myRand);
+
     //Lyt efter klik på element
     document.querySelector("#zombie_container1").addEventListener("mousedown", klikZombie1Handler);
+}
+
+function stopSpillet() {
+    console.log("tiden er gået, du har fået" + point + "point!");
 }
