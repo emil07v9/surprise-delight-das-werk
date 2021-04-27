@@ -454,13 +454,13 @@ body {
 }
 
 .speed1 {
-    animation-duration: 2.5s;
-}
-
-.speed2 {
     animation-duration: 3s;
 }
 
-.speed3 {
+.speed2 {
     animation-duration: 3.5s;
+}
+
+.speed3 {
+    animation-duration: 4s;
 }
