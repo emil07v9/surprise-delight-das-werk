@@ -282,9 +282,9 @@ body {
 #start {
     position: absolute;
     background-image: url(startside.svg);
+    background-size: cover;
     width: 100%;
     height: 100%;
-    display: none;
     top: 0;
     left: 0;
 }
@@ -293,7 +293,8 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    display: none;
+    background-image: url(game_over.svg);
+    background-size: cover;
     top: 0;
     left: 0;
 }
@@ -302,7 +303,8 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    display: none;
+    background-image: url(level_complete.svg);
+    background-size: cover;
     top: 0;
     left: 0;
 }
