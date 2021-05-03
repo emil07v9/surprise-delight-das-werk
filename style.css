@@ -393,7 +393,7 @@ s #game_ui {
 
 /*Animationer*/
 .hop {
-    animation-duration: 3s;
+    animation-duration: 2.5s;
     animation-iteration-count: infinite;
 }
 
@@ -538,13 +538,13 @@ s #game_ui {
 }
 
 .speed1 {
-    animation-duration: 3s;
+    animation-duration: 2s;
 }
 
 .speed2 {
-    animation-duration: 3.5s;
+    animation-duration: 2.8s;
 }
 
 .speed3 {
-    animation-duration: 4s;
+    animation-duration: 2.4s;
 }

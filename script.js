@@ -228,7 +228,7 @@ function stopSpillet() {
 
     if (liv <= 0) {
         gameover();
-    } else if (points >= 20) {
+    } else if (points >= 50) {
         levelComplete();
     } else {
         gameover();
