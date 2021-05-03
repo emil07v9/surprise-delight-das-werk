@@ -54,15 +54,6 @@ body {
     background-size: cover;
 }
 
-#spoegelse_container {
-    position: absolute;
-}
-
-#spoegelse_sprite {
-    background-image: url(spoegelse.svg);
-    background-size: cover;
-}
-
 #zombie_container1 {
     position: absolute;
 }

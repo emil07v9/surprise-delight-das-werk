@@ -4,7 +4,6 @@ const timer = document.querySelector("#time_board_container");
 const scoreBoard = document.querySelector("#score_board");
 const hekscontainer = document.querySelector("#heks_container");
 const knivmandcontainer = document.querySelector("#knivmand_container");
-const spoegelsecontainer = document.querySelector("#spoegelse_container");
 const zombiecontainer1 = document.querySelector("#zombie_container1");
 const zombiecontainer2 = document.querySelector("#zombie_container2");
 // Skærme, knapper, point
@@ -70,21 +69,18 @@ function startSpillet() {
     //Giv container en position, start hop-animation og start delay + speed
     hekscontainer.classList.add("pos1", "hop", "delay1", "speed1");
     knivmandcontainer.classList.add("pos3", "hop", "delay2", "speed2");
-    spoegelsecontainer.classList.add("pos5", "hop", "delay3", "speed3");
     zombiecontainer1.classList.add("pos2", "hop", "delay1", "speed1");
     zombiecontainer2.classList.add("pos6", "hop", "delay3", "speed3");
 
     //Lyt efter hop-animationer færdig
     hekscontainer.addEventListener("animationiteration", badReset);
     knivmandcontainer.addEventListener("animationiteration", badReset);
-    spoegelsecontainer.addEventListener("animationiteration", badReset);
     zombiecontainer1.addEventListener("animationiteration", goodReset);
     zombiecontainer2.addEventListener("animationiteration", goodReset);
 
     //Lyt efter klik på alle elementer
     hekscontainer.addEventListener("mousedown", klikBadHandler);
     knivmandcontainer.addEventListener("mousedown", klikBadHandler);
-    spoegelsecontainer.addEventListener("mousedown", klikBadHandler);
     zombiecontainer1.addEventListener("mousedown", klikGoodHandler);
     zombiecontainer2.addEventListener("mousedown", klikGoodHandler);
 
@@ -212,26 +208,21 @@ function stopSpillet() {
     document.querySelector("#heks_sprite").classList = "";
     document.querySelector("#knivmand_container").classList = "";
     document.querySelector("#knivmand_sprite").classList = "";
-    document.querySelector("#spoegelse_container").classList = "";
-    document.querySelector("#spoegelse_sprite").classList = "";
 
     document.querySelector("#time_board_container").removeEventListener("animationend", stopSpillet);
 
     document.querySelector("#heks_container").removeEventListener("animationiteration", badReset);
     document.querySelector("#knivmand_container").removeEventListener("animationiteration", badReset);
-    document.querySelector("#spoegelse_container").removeEventListener("animationiteration", badReset);
     document.querySelector("#zombie_container1").removeEventListener("animationiteration", goodReset);
     document.querySelector("#zombie_container2").removeEventListener("animationiteration", goodReset);
 
     document.querySelector("#heks_container").removeEventListener("animationend", badReset);
     document.querySelector("#knivmand_container").removeEventListener("animationend", badReset);
-    document.querySelector("#spoegelse_container").removeEventListener("animationend", badReset);
     document.querySelector("#zombie_sprite1").removeEventListener("animationend", goodReset);
     document.querySelector("#zombie_sprite2").removeEventListener("animationend", goodReset);
 
     document.querySelector("#heks_container").removeEventListener("mousedown", klikBadHandler);
     document.querySelector("#knivmand_container").removeEventListener("mousedown", klikBadHandler);
-    document.querySelector("#spoegelse_container").removeEventListener("mousedown", klikBadHandler);
     document.querySelector("#zombie_container1").removeEventListener("mousedown", klikGoodHandler);
     document.querySelector("#zombie_container2").removeEventListener("mousedown", klikGoodHandler);
 
