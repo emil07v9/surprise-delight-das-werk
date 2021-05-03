@@ -1,30 +1,65 @@
 let points;
 let liv;
 const timer = document.querySelector("#time_board_container");
+const scoreBoard = document.querySelector("#score_board");
 const hekscontainer = document.querySelector("#heks_container");
 const knivmandcontainer = document.querySelector("#knivmand_container");
 const spoegelsecontainer = document.querySelector("#spoegelse_container");
 const zombiecontainer1 = document.querySelector("#zombie_container1");
 const zombiecontainer2 = document.querySelector("#zombie_container2");
+// Skærme, knapper, point
+const startScreen = document.querySelector("#start");
+const startKnap = document.querySelector("#start_knap");
+const gameScreen = document.querySelector("#game");
+const lvlComScreen = document.querySelector("#level_complete");
+const lvlComKnap = document.querySelector("#genstart2");
+const lvlComPoints = document.querySelector("#level_complete_points");
+const gameOverScreen = document.querySelector("#game_over");
+const gameOverKnap = document.querySelector("#genstart1");
+const gameOverPoints = document.querySelector("#game_over_points");
+const liv1 = document.querySelector("#liv1");
+const liv2 = document.querySelector("#liv2");
+const liv3 = document.querySelector("#liv3");
+
 
 window.addEventListener("load", sidenVises);
 
 function sidenVises() {
     console.log("siden vises");
 
-    //Nulstil point + liv
-    points = 0;
-    liv = 3;
+    //    Skjul skærmene
+    gameScreen.classList.add("skjul");
+    lvlComScreen.classList.add("skjul");
+    gameOverScreen.classList.add("skjul");
 
-    //Klik play
-    startSpillet();
+    //    Lyt efter klik på startknap
+    startKnap.addEventListener("click", startSpillet);
 }
 
 function startSpillet() {
     console.log("startSpillet")
 
+    //Ryd op
+    gameOverKnap.removeEventListener("click", startSpillet);
+    lvlComKnap.removeEventListener("click", startSpillet);
+
+    //Nulstil point + liv
+    points = 0;
+    liv = 3;
+    liv1.classList.remove("skjul");
+    liv2.classList.remove("skjul");
+    liv3.classList.remove("skjul");
+
+    //    Skjul skærmene
+    lvlComScreen.classList.add("skjul");
+    gameOverScreen.classList.add("skjul");
+    startScreen.classList.add("skjul");
+
+    // Vis startskærm
+    gameScreen.classList.remove("skjul");
+
     //Udskriv points
-    document.querySelector("#score_board").innerHTML = points;
+    scoreBoard.innerHTML = points;
 
     //start en timer-animation
     timer.firstElementChild.classList.add("time");
@@ -125,7 +160,7 @@ function klikGoodHandler() {
 
     //Point - spil
     points = points + 5;
-    document.querySelector("#score_board").textContent = points;
+    scoreBoard.textContent = points;
 
     //Lyt efter hop-animation færdig
     this.addEventListener("animationend", goodReset);
@@ -212,8 +247,23 @@ function stopSpillet() {
 
 function gameover() {
     console.log("gameover");
+
+    gameOverPoints.textContent = points;
+
+    //    Vis gameover skærm
+    gameOverScreen.classList.remove("skjul");
+
+    //Lyt efter game_over
+    gameOverKnap.addEventListener("click", startSpillet);
 }
 
 function levelComplete() {
     console.log("levelComplete");
+    lvlComPoints.textContent = points;
+
+    //    Vis lvlcom skærm
+    lvlComScreen.classList.remove("skjul");
+
+    //Lyt efter lvlcom knap
+    lvlComKnap.addEventListener("click", startSpillet);
 }
