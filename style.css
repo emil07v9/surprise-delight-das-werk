@@ -27,6 +27,14 @@ body {
     background-size: cover;
 }
 
+#music_credit {
+    position: absolute;
+    color: white;
+    font-size: 0.7vw;
+    top: 54vw;
+    left: 1vw;
+}
+
 /*Game elements*/
 #game_elements {
     width: 100%;
@@ -185,7 +193,7 @@ body {
     pointer-events: none;
 }
 
-s #game_ui {
+#game_ui {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -194,15 +202,13 @@ s #game_ui {
     pointer-events: none;
 }
 
+/*Point*/
 #score_board {
     position: absolute;
-    top: 2.6vw;
+    top: 3.5vw;
     left: 85vw;
-    width: 8vw;
-    height: 2vw;
-    background-image: url(point.svg);
-    background-size: cover;
-    font-size: 3vw;
+    font-size: 2vw;
+    color: white;
 }
 
 #energy_board {
@@ -221,49 +227,33 @@ s #game_ui {
 /* Tid*/
 #time_board_container {
     position: absolute;
-    /*
     top: 2vw;
     left: 35vw;
-*/
-    top: 2vw;
-    left: 35vw;
-    width: 30vw;
-    height: 3vw;
-    border: 4px solid black;
 }
 
 #time_board_sprite {
-    width: 30vw;
-    height: 3vw;
-    background-color: lime;
-    transform-origin: left center;
+    width: 38vw;
+    height: 5vw;
+    background-image: url(tid.svg);
+    background-size: 1000% 100%;
 }
 
 .time {
     animation-name: time_kf;
     animation-duration: 20s;
-    animation-timing-function: linear;
+    animation-timing-function: steps(13);
     animation-fill-mode: both;
 }
 
 @keyframes time_kf {
     0% {
-        transform: scaleY(1);
+        background-position: 0;
     }
 
     100% {
-        transform: scaleY(0);
+        background-position: -1200vw;
     }
 }
-
-/*
-#time_board_sprite {
-    width: 30vw;
-    height: 3vw;
-    background-image: url(tid.svg);
-    background-size: cover;
-}
-*/
 
 #start {
     position: absolute;
@@ -273,16 +263,17 @@ s #game_ui {
     height: 100%;
     top: 0;
     left: 0;
+    cursor: pointer;
 }
 
 #start_knap {
     position: absolute;
-    top: 32vw;
-    left: 10vw;
+    top: 37vw;
+    left: 7.5vw;
     background-image: url(startknap.svg);
     background-size: cover;
-    width: 15vw;
-    height: 5vw;
+    width: 21vw;
+    height: 6vw;
 
     animation-name: puls_kf;
     animation-duration: 0.7s;
@@ -301,6 +292,52 @@ s #game_ui {
     }
 }
 
+#regelknap {
+    position: absolute;
+    top: 45vw;
+    left: 9.5vw;
+    background-image: url(regel_knap.svg);
+    background-size: cover;
+    width: 17vw;
+    height: 5vw;
+}
+
+#regler {
+    position: absolute;
+    background-image: url(regelside.svg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+#start_knap2 {
+    position: absolute;
+    top: 35vw;
+    left: 41vw;
+    background-image: url(startknap.svg);
+    background-size: cover;
+    width: 18vw;
+    height: 6vw;
+
+    animation-name: puls_kf;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+@keyframes puls_kf {
+    0% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 #game_over {
     position: absolute;

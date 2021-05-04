@@ -1,5 +1,7 @@
 let points;
 let liv;
+// Array med alle positioner
+let posArray = ["pos1", "pos2", "pos3", "pos4", "pos5", "pos6", "pos7", "pos8"];
 const timer = document.querySelector("#time_board_container");
 const scoreBoard = document.querySelector("#score_board");
 const hekscontainer = document.querySelector("#heks_container");
@@ -9,6 +11,9 @@ const zombiecontainer2 = document.querySelector("#zombie_container2");
 // Skærme, knapper, point
 const startScreen = document.querySelector("#start");
 const startKnap = document.querySelector("#start_knap");
+const regelKnap = document.querySelector("#regelknap");
+const regelScreen = document.querySelector("#regler");
+const startKnap2 = document.querySelector("#start_knap2");
 const gameScreen = document.querySelector("#game");
 const lvlComScreen = document.querySelector("#level_complete");
 const lvlComKnap = document.querySelector("#genstart2");
@@ -19,6 +24,11 @@ const gameOverPoints = document.querySelector("#game_over_points");
 const liv1 = document.querySelector("#liv1");
 const liv2 = document.querySelector("#liv2");
 const liv3 = document.querySelector("#liv3");
+//Lyde
+const creepySound = document.querySelector("#creepy");
+const klingSound = document.querySelector("#kling");
+const plingSound = document.querySelector("#pling");
+const buzzSound = document.querySelector("#buzz");
 
 
 window.addEventListener("load", sidenVises);
@@ -30,17 +40,45 @@ function sidenVises() {
     gameScreen.classList.add("skjul");
     lvlComScreen.classList.add("skjul");
     gameOverScreen.classList.add("skjul");
+    regelScreen.classList.add("skjul");
 
-    //    Lyt efter klik på startknap
+    //    Lyt efter klik på knapper
+    regelKnap.addEventListener("click", regelSiden);
     startKnap.addEventListener("click", startSpillet);
 }
 
-function startSpillet() {
-    console.log("startSpillet")
+function regelSiden() {
+    console.log("regelSiden");
 
     //Ryd op
+    regelKnap.removeEventListener("click", regelSiden);
+
+    //    Skjul skærmene
+    gameScreen.classList.add("skjul");
+    lvlComScreen.classList.add("skjul");
+    gameOverScreen.classList.add("skjul");
+    startScreen.classList.add("skjul");
+
+    //Vis skærm
+    regelScreen.classList.remove("skjul");
+
+    //Lyt efter start
+    startKnap2.addEventListener("click", startSpillet);
+}
+
+function startSpillet() {
+    console.log("startSpillet");
+
+    //Ryd op
+    startKnap.removeEventListener("click", startSpillet);
+    startKnap2.removeEventListener("click", startSpillet);
     gameOverKnap.removeEventListener("click", startSpillet);
     lvlComKnap.removeEventListener("click", startSpillet);
+
+    //Musik
+    creepySound.currentTime = 0;
+    creepySound.volume = 0.4;
+    creepySound.play();
 
     //Nulstil point + liv
     points = 0;
@@ -53,6 +91,7 @@ function startSpillet() {
     lvlComScreen.classList.add("skjul");
     gameOverScreen.classList.add("skjul");
     startScreen.classList.add("skjul");
+    regelScreen.classList.add("skjul");
 
     // Vis startskærm
     gameScreen.classList.remove("skjul");
@@ -65,12 +104,14 @@ function startSpillet() {
 
     timer.addEventListener("animationend", stopSpillet);
 
+    //Blander posArray en funtion i bunden
+    shuffle(posArray);
 
     //Giv container en position, start hop-animation og start delay + speed
-    hekscontainer.classList.add("pos1", "hop", "delay1", "speed1");
-    knivmandcontainer.classList.add("pos3", "hop", "delay2", "speed2");
-    zombiecontainer1.classList.add("pos2", "hop", "delay1", "speed1");
-    zombiecontainer2.classList.add("pos6", "hop", "delay3", "speed3");
+    hekscontainer.classList.add(posArray.shift(), "hop", "delay1", "speed1");
+    knivmandcontainer.classList.add(posArray.shift(), "hop", "delay2", "speed2");
+    zombiecontainer1.classList.add(posArray.shift(), "hop", "delay1", "speed1");
+    zombiecontainer2.classList.add(posArray.shift(), "hop", "delay3", "speed3");
 
     //Lyt efter hop-animationer færdig
     hekscontainer.addEventListener("animationiteration", badReset);
@@ -97,6 +138,11 @@ function klikBadHandler() {
     //frys (pause), hop-animationen
     this.classList.add("pause");
 
+    //Afspil lyd
+    buzzSound.currentTime = 0;
+    buzzSound.volume = 0.4;
+    buzzSound.play();
+
     //Start forsvind-animationer på sprite element
     this.firstElementChild.classList.add("roter_forsvind");
 
@@ -119,6 +165,15 @@ function badReset() {
     //Lyt efter animationend færdig
     this.removeEventListener("animationend", badReset);
 
+    //Laver classList om til en string (bogstaver)
+    let test = String(this.classList);
+
+    //Gemmer den class der har pos og et tal efter f.eks. pos8 og laver det om til en string
+    let matches = String(test.match(/pos\d+/));
+
+    //Sætter den positioner der var på elemetet tilbage i arrayet
+    posArray.push(matches);
+
     //ryd op, fjern alt er på container og sprite
     this.classList = "";
     this.firstElementChild.classList = "";
@@ -126,11 +181,11 @@ function badReset() {
     //For at kunne genstarte hop animationen, da vi fjener og tilføjer den i samme function
     this.offsetHeight;
 
-    myRand = Math.floor(Math.random() * 8) + 1;
-    console.log(myRand);
+    //Blander posArray en funtion i bunden igen
+    shuffle(posArray);
 
     //Giv en position til container og start hop-animation
-    this.classList.add("pos" + myRand, "hop");
+    this.classList.add(posArray.shift(), "hop");
 
     myRand = Math.floor(Math.random() * 3) + 1;
     console.log(myRand);
@@ -150,6 +205,18 @@ function klikGoodHandler() {
 
     //frys (pause), hop-animationen
     this.classList.add("pause");
+
+    //Spil lyd
+    let ran = Math.random();
+    if (ran < 0.3) {
+        klingSound.currentTime = 0;
+        klingSound.volume = 0.4;
+        klingSound.play();
+    } else {
+        plingSound.currentTime = 0;
+        plingSound.volume = 0.4;
+        plingSound.play();
+    }
 
     //Start forsvind-animationer på sprite element
     this.firstElementChild.classList.add("zoom_forsvind");
@@ -176,6 +243,15 @@ function goodReset() {
     //Lyt efter animationend færdig
     this.removeEventListener("animationend", goodReset);
 
+    //Laver classList om til en string (bogstaver)
+    let test = String(this.classList);
+
+    //Gemmer den class der har pos og et tal efter f.eks. pos8 og laver det om til en string
+    let matches = String(test.match(/pos\d+/));
+
+    //Sætter den positioner der var på elemetet tilbage i arrayet
+    posArray.push(matches);
+
     //ryd op, fjern alt er på container og sprite
     this.classList = "";
     this.firstElementChild.classList = "";
@@ -183,10 +259,11 @@ function goodReset() {
     //For at kunne genstarte hop animationen, da vi fjener og tilføjer den i samme function
     this.offsetHeight;
 
-    myRand = Math.floor(Math.random() * 8) + 1;
-    console.log(myRand);
+    //Blander posArray en funtion i bunden igen
+    shuffle(posArray);
+
     //Giv en position til container og start hop-animation
-    this.classList.add("pos" + myRand, "hop");
+    this.classList.add(posArray.shift(), "hop");
 
     myRand = Math.floor(Math.random() * 3) + 1;
     console.log(myRand);
@@ -195,6 +272,14 @@ function goodReset() {
 
     //Lyt efter klik på element
     this.addEventListener("mousedown", klikGoodHandler);
+}
+
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }
 
 function stopSpillet() {
@@ -228,7 +313,7 @@ function stopSpillet() {
 
     if (liv <= 0) {
         gameover();
-    } else if (points >= 50) {
+    } else if (points >= 80) {
         levelComplete();
     } else {
         gameover();
