@@ -229,29 +229,34 @@ body {
     position: absolute;
     top: 2vw;
     left: 35vw;
+    width: 25vw;
+    height: 2.9vw;
+    background-image: url(tid_bar.svg);
+    background-size: cover;
 }
 
 #time_board_sprite {
-    width: 27vw;
-    height: 3.6vw;
-    background-image: url(tid.svg);
-    background-size: 1300% 100%;
+    width: 1.8vw;
+    height: 2.6vw;
+    background-image: url(tid_zombie.svg);
+    background-size: cover;
+
 }
 
 .time {
     animation-name: time_kf;
     animation-duration: 20s;
-    animation-timing-function: steps(13);
+    animation-timing-function: linear;
     animation-fill-mode: both;
 }
 
 @keyframes time_kf {
     0% {
-        background-position: 0;
+        transform: translateX(0);
     }
 
     100% {
-        background-position: -1300%;
+        transform: translateX(22.5vw);
     }
 }
 

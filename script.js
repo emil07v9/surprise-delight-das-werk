@@ -276,6 +276,13 @@ function goodReset() {
     this.addEventListener("mousedown", klikGoodHandler);
 }
 
+//function {
+//    console.log("")
+//    //Point - spil
+//    points = points + 5;
+//    scoreBoard.textContent = points;
+//}
+
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
