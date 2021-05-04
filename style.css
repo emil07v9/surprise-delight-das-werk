@@ -205,7 +205,7 @@ body {
 /*Point*/
 #score_board {
     position: absolute;
-    top: 3.5vw;
+    top: 3vw;
     left: 85vw;
     font-size: 2vw;
     color: white;
@@ -227,8 +227,8 @@ body {
 /* Tid*/
 #time_board_container {
     position: absolute;
-    top: 2vw;
-    left: 35vw;
+    top: 2.6vw;
+    left: 39vw;
     width: 25vw;
     height: 2.9vw;
     background-image: url(tid_bar.svg);
@@ -352,6 +352,7 @@ body {
     background-size: cover;
     top: 0;
     left: 0;
+    cursor: pointer;
 }
 
 #game_over_points {
@@ -396,6 +397,7 @@ body {
     background-size: cover;
     top: 0;
     left: 0;
+    cursor: pointer;
 }
 
 #level_complete_points {
@@ -435,7 +437,7 @@ body {
 
 /*Animationer*/
 .hop {
-    animation-duration: 2.5s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 
@@ -580,13 +582,21 @@ body {
 }
 
 .speed1 {
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 .speed2 {
-    animation-duration: 2.8s;
+    animation-duration: 1.2s;
 }
 
 .speed3 {
-    animation-duration: 2.4s;
+    animation-duration: 1.4s;
+}
+
+.speed4 {
+    animation-duration: 1.6s;
+}
+
+.speed5 {
+    animation-duration: 1.8s;
 }

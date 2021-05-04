@@ -76,9 +76,9 @@ function startSpillet() {
     gameOverKnap.removeEventListener("click", startSpillet);
     lvlComKnap.removeEventListener("click", startSpillet);
 
-    //Musik
+    //Baggrunds musik
     creepySound.currentTime = 0;
-    creepySound.volume = 0.4;
+    creepySound.volume = 0.2;
     creepySound.play();
 
     //Nulstil point + liv
@@ -106,14 +106,16 @@ function startSpillet() {
     timer.addEventListener("animationend", stopSpillet);
 
     posArray = ["pos1", "pos2", "pos3", "pos4", "pos5", "pos6", "pos7", "pos8"];
-    //Blander posArray en funtion i bunden
+    //Blander posArray en funktion i bunden
     shuffle(posArray);
 
+    myRand = Math.floor(Math.random() * 5) + 1;
+    console.log(myRand);
     //Giv container en position, start hop-animation og start delay + speed
-    hekscontainer.classList.add(posArray.shift(), "hop", "delay1", "speed1");
-    knivmandcontainer.classList.add(posArray.shift(), "hop", "delay2", "speed2");
-    zombiecontainer1.classList.add(posArray.shift(), "hop", "delay1", "speed1");
-    zombiecontainer2.classList.add(posArray.shift(), "hop", "delay3", "speed3");
+    hekscontainer.classList.add(posArray.shift(), "hop", "delay1", "speed" + myRand);
+    knivmandcontainer.classList.add(posArray.shift(), "hop", "delay2", "speed" + myRand);
+    zombiecontainer1.classList.add(posArray.shift(), "hop", "delay1", "speed" + myRand);
+    zombiecontainer2.classList.add(posArray.shift(), "hop", "delay3", "speed" + myRand);
 
     //Lyt efter hop-animationer færdig
     hekscontainer.addEventListener("animationiteration", badReset);
@@ -142,7 +144,7 @@ function klikBadHandler() {
 
     //Afspil lyd
     buzzSound.currentTime = 0;
-    buzzSound.volume = 0.4;
+    buzzSound.volume = 0.1;
     buzzSound.play();
 
     //Start forsvind-animationer på sprite element
@@ -189,7 +191,7 @@ function badReset() {
     //Giv en position til container og start hop-animation
     this.classList.add(posArray.shift(), "hop");
 
-    myRand = Math.floor(Math.random() * 3) + 1;
+    myRand = Math.floor(Math.random() * 5) + 1;
     console.log(myRand);
 
     //Start random speed
@@ -212,11 +214,11 @@ function klikGoodHandler() {
     let ran = Math.random();
     if (ran < 0.3) {
         klingSound.currentTime = 0;
-        klingSound.volume = 0.4;
+        klingSound.volume = 0.1;
         klingSound.play();
     } else {
         plingSound.currentTime = 0;
-        plingSound.volume = 0.4;
+        plingSound.volume = 0.1;
         plingSound.play();
     }
 
@@ -224,7 +226,7 @@ function klikGoodHandler() {
     this.firstElementChild.classList.add("zoom_forsvind");
 
     //Point - spil
-    points = points + 5;
+    points = points + 1;
     scoreBoard.textContent = points;
 
     //Lyt efter hop-animation færdig
@@ -267,7 +269,7 @@ function goodReset() {
     //Giv en position til container og start hop-animation
     this.classList.add(posArray.shift(), "hop");
 
-    myRand = Math.floor(Math.random() * 3) + 1;
+    myRand = Math.floor(Math.random() * 5) + 1;
     console.log(myRand);
     //Start random speed
     this.classList.add("speed" + myRand);
@@ -275,13 +277,6 @@ function goodReset() {
     //Lyt efter klik på element
     this.addEventListener("mousedown", klikGoodHandler);
 }
-
-//function {
-//    console.log("")
-//    //Point - spil
-//    points = points + 5;
-//    scoreBoard.textContent = points;
-//}
 
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -324,7 +319,7 @@ function stopSpillet() {
 
     if (liv <= 0) {
         gameover();
-    } else if (points >= 80) {
+    } else if (points >= 15) {
         levelComplete();
     } else {
         gameover();
