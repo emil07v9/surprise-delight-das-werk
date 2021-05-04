@@ -232,10 +232,10 @@ body {
 }
 
 #time_board_sprite {
-    width: 38vw;
-    height: 5vw;
+    width: 27vw;
+    height: 3.6vw;
     background-image: url(tid.svg);
-    background-size: 1000% 100%;
+    background-size: 1300% 100%;
 }
 
 .time {
@@ -251,7 +251,7 @@ body {
     }
 
     100% {
-        background-position: -1200vw;
+        background-position: -1300%;
     }
 }
 

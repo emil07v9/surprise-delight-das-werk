@@ -2,6 +2,7 @@ let points;
 let liv;
 // Array med alle positioner
 let posArray = ["pos1", "pos2", "pos3", "pos4", "pos5", "pos6", "pos7", "pos8"];
+//Timer, score og elementer
 const timer = document.querySelector("#time_board_container");
 const scoreBoard = document.querySelector("#score_board");
 const hekscontainer = document.querySelector("#heks_container");
@@ -104,6 +105,7 @@ function startSpillet() {
 
     timer.addEventListener("animationend", stopSpillet);
 
+    posArray = ["pos1", "pos2", "pos3", "pos4", "pos5", "pos6", "pos7", "pos8"];
     //Blander posArray en funtion i bunden
     shuffle(posArray);
 
@@ -294,6 +296,8 @@ function stopSpillet() {
     document.querySelector("#knivmand_container").classList = "";
     document.querySelector("#knivmand_sprite").classList = "";
 
+    document.querySelector("#time_board_container").classList = "";
+    document.querySelector("#time_board_sprite").classList = "";
     document.querySelector("#time_board_container").removeEventListener("animationend", stopSpillet);
 
     document.querySelector("#heks_container").removeEventListener("animationiteration", badReset);
