@@ -271,6 +271,24 @@ body {
     cursor: pointer;
 }
 
+nav {
+    position: absolute;
+    top: 1vw;
+    left: 2vw;
+}
+
+a {
+    font-family: 'Escoffier Capitaux', serif;
+    font-size: 2vw;
+    text-decoration: none;
+    font-weight: 700;
+    color: #D3E7EA;
+}
+
+a:hover {
+    color: #FFBF85;
+}
+
 #start_knap {
     position: absolute;
     top: 37vw;
@@ -582,21 +600,21 @@ body {
 }
 
 .speed1 {
-    animation-duration: 1s;
+    animation-duration: 1.1s;
 }
 
 .speed2 {
-    animation-duration: 1.2s;
+    animation-duration: 1.3s;
 }
 
 .speed3 {
-    animation-duration: 1.4s;
+    animation-duration: 1.5s;
 }
 
 .speed4 {
-    animation-duration: 1.6s;
+    animation-duration: 1.7s;
 }
 
 .speed5 {
-    animation-duration: 1.8s;
+    animation-duration: 1.9s;
 }
